@@ -80,7 +80,7 @@ def cargar_excel_desde_drive(nombre_archivo):
     file_stream.seek(0)
 
     # 4. Leer el archivo Excel usando pandas y openpyxl
-    return pd.read_csv(file_stream, sep=";", quotechar='"', encoding="utf-8", on_bad_lines="skip")
+    return pd.read_excel(file_stream, engine="openpyxl")
 
 
 # --- PANEL PRINCIPAL ---
