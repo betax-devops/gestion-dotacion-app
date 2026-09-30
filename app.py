@@ -96,6 +96,12 @@ if df_dotacion is not None:
     st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
 
     # Mostrar la tabla en Streamlit
+
+    #Convertir a entero
+    df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('Int64')
+    #Convertir a Fecha sin hora
+    df_dotacion['Fecha_Nac'] = pd.to_datetime(df_dotacion['Fecha_Nac'], errors='coerce').dt.date
+    #Columnas deseadas a mostrar
     cols_deseadas_tecnicos = [
         "Legajo",
         "Técnico",
