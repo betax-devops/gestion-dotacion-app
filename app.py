@@ -100,7 +100,7 @@ if df_dotacion is not None:
         "Legajo",
         "Técnico",
         "DNI",
-        "Business Email Information Email Address"
+        "Business  Email Information Email Address"
     ]
     cols_tecnicos = [col for col in cols_deseadas_tecnicos if col in df_dotacion.columns]
     st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
