@@ -98,7 +98,8 @@ if df_dotacion is not None:
     # Mostrar la tabla en Streamlit
 
     #Convertir a entero
-    df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('float')
+    #df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('float')
+    st.dataframe(df_dotacion,column_config={"Edad": st.column_config.NumberColumn("Edad", format="%d")},use_container_width=True,)
     #Convertir a Fecha sin hora
     df_dotacion['Fecha_Nac'] = pd.to_datetime(df_dotacion['Fecha_Nac'], errors='coerce').dt.date
     #Columnas deseadas a mostrar
