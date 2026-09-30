@@ -96,4 +96,11 @@ if df_dotacion is not None:
     st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
 
     # Mostrar la tabla en Streamlit
-    st.dataframe(df_dotacion, use_container_width=True)
+    cols_deseadas_tecnicos = [
+        "Legajo",
+        "Técnico",
+        "DNI",
+        "Business Email Information Email Address"
+    ]
+    cols_tecnicos = [col for col in cols_deseadas_tecnicos if col in df_dotacion.columns]
+    st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
