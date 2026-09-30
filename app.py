@@ -99,6 +99,9 @@ if df_dotacion is not None:
     cols_deseadas_tecnicos = [
         "Legajo",
         "Técnico",
+        "Apellido y Nombre",
+        "Edad",
+        "Fecha_Nac",
         "DNI",
         "Business  Email Information Email Address"
     ]
