@@ -80,7 +80,7 @@ def cargar_excel_desde_drive(nombre_archivo):
     file_stream.seek(0)
 
     # 4. Leer el archivo Excel usando pandas y openpyxl
-    return pd.read_csv(file_stream, sep=";", quotechar='"', encoding="latin1")
+    return pd.read_csv(file_stream, sep=";", quotechar='"', encoding="utf-8", on_bad_lines="skip")
 
 
 # --- PANEL PRINCIPAL ---
@@ -97,4 +97,3 @@ if df_dotacion is not None:
 
     # Mostrar la tabla en Streamlit
     st.dataframe(df_dotacion, use_container_width=True)
-return pd.read_csv(file_stream, sep=";", quotechar='"', encoding="utf-8", on_bad_lines="skip")
