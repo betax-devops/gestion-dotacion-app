@@ -99,7 +99,10 @@ if df_dotacion is not None:
 
     #Convertir a entero
     #df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('float')
-    
+    if 'Edad' in df_dotacion.columns:
+    df_dotacion['Edad'] = pd.to_numeric(
+        df_dotacion['Edad'], errors='coerce'
+    ).astype('Int64')
     #Convertir a Fecha sin hora
     df_dotacion['Fecha_Nac'] = pd.to_datetime(df_dotacion['Fecha_Nac'], errors='coerce').dt.date
     #Columnas deseadas a mostrar
@@ -113,5 +116,5 @@ if df_dotacion is not None:
         "Business  Email Information Email Address"
     ]
     cols_tecnicos = [col for col in cols_deseadas_tecnicos if col in df_dotacion.columns]
-    #st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
-    st.dataframe(df_dotacion,column_config={"Edad": st.column_config.NumberColumn("Edad", format="%d")},use_container_width=True,)
+    st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
+    #st.dataframe(df_dotacion,column_config={"Edad": st.column_config.NumberColumn("Edad", format="%d")},use_container_width=True,)
