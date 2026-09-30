@@ -97,4 +97,4 @@ if df_dotacion is not None:
 
     # Mostrar la tabla en Streamlit
     st.dataframe(df_dotacion, use_container_width=True)
-    return pd.read_excel(file_stream)
+    return pd.read_csv(file_stream, sep=";", quotechar='"', encoding="utf-8", on_bad_lines="skip")
