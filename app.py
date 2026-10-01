@@ -91,7 +91,7 @@ FLOTA = "flota.xlsx"
 
 # Cargar datos desde Google Drive
 df_dotacion = cargar_excel_desde_drive(DOTACION)
-de_celulares = cargar_excel_desde_drive(CELULARES)
+df_celulares = cargar_excel_desde_drive(CELULARES)
 df_flota = cargar_excel_desde_drive(FLOTA)
 
 # --- PESTAÑAS DE NAVEGACIÓN ---
