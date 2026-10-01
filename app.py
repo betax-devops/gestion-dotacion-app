@@ -99,7 +99,7 @@ tab_dotacion, tab_celulares, tab_flota, tab_hh, tab_epps = st.tabs(["👷🏻‍
 
 with tab_dotacion:
     if df_dotacion is not None:
-        st.subheader("👷🏻‍♂️ Registro de Dotación")
+        st.subheader("👷🏻‍♂️ Registro de Dotación", icon=":material/router:",divider="blue",anchor="puerto-24")
         st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
     
         # Mostrar la tabla en Streamlit
