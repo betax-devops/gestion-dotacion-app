@@ -41,7 +41,6 @@ def verificar_password():
 
     return False
 
-
 # Bloquear la ejecución si el usuario no ingresó la contraseña
 if not verificar_password():
     st.stop()
@@ -84,12 +83,12 @@ def cargar_excel_desde_drive(nombre_archivo):
 
 
 # --- PANEL PRINCIPAL ---
-st.title("📊 AnálisisRED - Control de Dotación")
+st.title("📊 Base CCP - Control de Dotación")
 
-NOMBRE_ARCHIVO_EXCEL = "dotacion.xlsx"
+DOTACION = "dotacion.xlsx"
 
 # Cargar datos desde Google Drive
-df_dotacion = cargar_excel_desde_drive(NOMBRE_ARCHIVO_EXCEL)
+df_dotacion = cargar_excel_desde_drive(DOTACION)
 
 if df_dotacion is not None:
     st.subheader("📋 Registro de Dotación")
