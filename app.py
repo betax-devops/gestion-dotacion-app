@@ -90,27 +90,31 @@ DOTACION = "dotacion.xlsx"
 # Cargar datos desde Google Drive
 df_dotacion = cargar_excel_desde_drive(DOTACION)
 
-if df_dotacion is not None:
-    st.subheader("📋 Registro de Dotación")
-    st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
+# --- PESTAÑAS DE NAVEGACIÓN ---
+tab_datos, tab_celulares, tab_flota, tab_hh, tab_epps = st.tabs(["👷🏻‍♂️ Dotacion", "📱 Celulares", "🚗 Flota", "🧰 Herramientas", "⛑️ EPPs"])
 
-    # Mostrar la tabla en Streamlit
-
-    #Convertir a entero
-    df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('float')
-    #if 'Edad' in df_dotacion.columns:df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('Int64')
-    #Convertir a Fecha sin hora
-    df_dotacion['Fecha_Nac'] = pd.to_datetime(df_dotacion['Fecha_Nac'], errors='coerce').dt.date
-    #Columnas deseadas a mostrar
-    cols_deseadas_tecnicos = [
-        "Legajo",
-        "Técnico",
-        "Apellido y Nombre",
-        "Edad",
-        "Fecha_Nac",
-        "DNI",
-        "Business  Email Information Email Address"
-    ]
-    cols_tecnicos = [col for col in cols_deseadas_tecnicos if col in df_dotacion.columns]
-    st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
-    #st.dataframe(df_dotacion,column_config={"Edad": st.column_config.NumberColumn("Edad", format="%d")},use_container_width=True,)
+with tab_datos:
+    if df_dotacion is not None:
+        st.subheader("📋 Registro de Dotación")
+        st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
+    
+        # Mostrar la tabla en Streamlit
+    
+        #Convertir a entero
+        df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('float')
+        #if 'Edad' in df_dotacion.columns:df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('Int64')
+        #Convertir a Fecha sin hora
+        df_dotacion['Fecha_Nac'] = pd.to_datetime(df_dotacion['Fecha_Nac'], errors='coerce').dt.date
+        #Columnas deseadas a mostrar
+        cols_deseadas_tecnicos = [
+            "Legajo",
+            "Técnico",
+            "Apellido y Nombre",
+            "Edad",
+            "Fecha_Nac",
+            "DNI",
+            "Business  Email Information Email Address"
+        ]
+        cols_tecnicos = [col for col in cols_deseadas_tecnicos if col in df_dotacion.columns]
+        st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
+        #st.dataframe(df_dotacion,column_config={"Edad": st.column_config.NumberColumn("Edad", format="%d")},use_container_width=True,)
