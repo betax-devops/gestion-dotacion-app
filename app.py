@@ -128,7 +128,7 @@ with tab_celulares:
         st.subheader("📱 Registro de Celulares")
         st.write(f"Total de registros cargados: **{len(df_celulares)}**")
 
-        st.dataframe(df_dotacion, use_container_width=True)
+        st.dataframe(df_celulares, use_container_width=True)
 
     
     
