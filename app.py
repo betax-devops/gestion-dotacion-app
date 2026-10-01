@@ -18,7 +18,7 @@ def verificar_password():
     if st.session_state.autenticado:
         return True
 
-    st.subheader("🔒 Acceso Restringido - AnálisisRED")
+    st.subheader("🔒 Acceso Restringido - Base CCP")
 
     try:
         correct_password = st.secrets["APP_PASSWORD"]
