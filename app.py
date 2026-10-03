@@ -128,12 +128,14 @@ with tab_dotacion:
             column_config={
                 "Fecha_Nac": st.column_config.DateColumn(
                     "Fecha Nacimiento", format="DD/MM/YYYY"
-                )
+                ),
+                "Edad": st.column_config.NumberColumn(
+                    "Edad", format="%d años"
+                ),
             },
             use_container_width=True,
         )
-        #st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
-        #st.dataframe(df_dotacion,column_config={"Edad": st.column_config.NumberColumn("Edad", format="%d")},use_container_width=True,)
+
 
 # --- CELULARES ---
 with tab_celulares:
