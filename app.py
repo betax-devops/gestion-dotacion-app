@@ -97,6 +97,7 @@ df_flota = cargar_excel_desde_drive(FLOTA)
 # --- PESTAÑAS DE NAVEGACIÓN ---
 tab_dotacion, tab_celulares, tab_flota, tab_hh, tab_epps = st.tabs(["👷🏻‍♂️ Dotacion", "📱 Celulares", "🚗 Flota", "🧰 Herramientas", "⛑️ EPPs"])
 
+# --- DORACION ---
 with tab_dotacion:
     if df_dotacion is not None:
         st.subheader("👷🏻‍♂️ Registro de Dotación", icon=":material/router:",divider="blue",anchor="puerto-24")
@@ -108,8 +109,6 @@ with tab_dotacion:
             df_dotacion["Fecha_Nac"] = pd.to_datetime(
                 df_dotacion["Fecha_Nac"], errors="coerce"
             ).dt.date
-
-        st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
 
         #Columnas deseadas a mostrar
         cols_deseadas_tecnicos = [
@@ -135,7 +134,8 @@ with tab_dotacion:
         )
         #st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
         #st.dataframe(df_dotacion,column_config={"Edad": st.column_config.NumberColumn("Edad", format="%d")},use_container_width=True,)
-    
+
+# --- CELULARES ---
 with tab_celulares:
     if df_celulares is not None:
         st.subheader("📱 Registro de Celulares")
