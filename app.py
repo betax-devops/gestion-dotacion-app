@@ -135,7 +135,7 @@ with tab_dotacion:
         ).astype("Int64")
 
         # Agregamos mes de cumpleaños
-        df_dotacion['Cumpleaños'] = df_dotacion['Fecha_Nac'].date.month
+        df_dotacion['Cumpleaños'] = pd.to_datetime(df_dotacion['Fecha_Nac']).dt.month
 
         #Columnas deseadas a mostrar
         cols_deseadas_tecnicos = [
