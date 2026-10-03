@@ -114,7 +114,6 @@ with tab_dotacion:
             "Legajo",
             "Técnico",
             "Apellido y Nombre",
-            "Edad",
             "Fecha_Nac",
             "DNI",
             "Business  Email Information Email Address",
