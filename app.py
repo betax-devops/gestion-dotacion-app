@@ -104,11 +104,22 @@ with tab_dotacion:
         st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
     
         # --- NORMALIZACION DE TIPO DE DATOS ---
+        # Fecha de Nacimiento a dato date y con formato dd mm yyyy
         if "Fecha_Nac" in df_dotacion.columns:
             # Convertir a datetime y extraer únicamente la fecha (.dt.date)
             df_dotacion["Fecha_Nac"] = pd.to_datetime(
                 df_dotacion["Fecha_Nac"], errors="coerce"
             ).dt.date
+
+        # Calculamos la Edad
+        # 1. Asegurar que Fecha_Nac sea datetime para la operación
+        fecha_nac = pd.to_datetime(df_dotacion['Fecha_Nac'], errors='coerce')
+        # 2. Fecha actual
+        hoy = date.today()
+        # 3. Fórmula para calcular la edad exacta en años cumplidos
+        df_dotacion['Edad'] = fecha_nac.apply(
+        lambda d: hoy.year - d.year - ((hoy.month, hoy.day) < (d.month, d.day)) if pd.notnull(d) else None
+        ).astype("Int64")
 
         #Columnas deseadas a mostrar
         cols_deseadas_tecnicos = [
@@ -129,9 +140,6 @@ with tab_dotacion:
             column_config={
                 "Fecha_Nac": st.column_config.DateColumn(
                     "Fecha Nacimiento", format="DD/MM/YYYY"
-                ),
-                "Edad": st.column_config.NumberColumn(
-                    "Edad", format="%d años"
                 ),
             },
             use_container_width=True,
