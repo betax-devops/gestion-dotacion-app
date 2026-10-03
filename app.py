@@ -134,12 +134,16 @@ with tab_dotacion:
         lambda d: hoy.year - d.year - ((hoy.month, hoy.day) < (d.month, d.day)) if pd.notnull(d) else None
         ).astype("Int64")
 
+        # Agregamos mes de cumpleaños
+        df_dotacion['Cumpleaños'] = df_dotacion['Fecha_Nac'].dt.month
+
         #Columnas deseadas a mostrar
         cols_deseadas_tecnicos = [
             "Legajo",
             "Técnico",
             "Apellido y Nombre",
             "Fecha_Nac",
+            "Cumpleaños",
             "Edad",
             "DNI",
             "Email",
