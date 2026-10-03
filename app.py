@@ -101,9 +101,21 @@ tab_dotacion, tab_celulares, tab_flota, tab_hh, tab_epps = st.tabs(["👷🏻‍
 # --- DORACION ---
 with tab_dotacion:
     if df_dotacion is not None:
-        st.subheader("👷🏻‍♂️ Registro de Dotación", icon=":material/router:",divider="blue",anchor="puerto-24")
+        st.subheader(
+            "👷🏻‍♂️ Registro de Dotación",
+            icon=":material/router:",
+            divider="blue",
+            anchor="puerto-24"
+        )
         st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
-    
+
+        # --- RENOMBRAR COLUMNAS ---
+        if "Business  Email Information Email Address" in df_dotacion.columns:
+            df_dotacion.rename(
+                columns={"Business  Email Information Email Address": "Email"},
+                inplace=True,
+            )
+        
         # --- NORMALIZACION DE TIPO DE DATOS ---
         # Fecha de Nacimiento a dato date y con formato dd mm yyyy
         if "Fecha_Nac" in df_dotacion.columns:
@@ -130,7 +142,7 @@ with tab_dotacion:
             "Fecha_Nac",
             "Edad",
             "DNI",
-            "Business  Email Information Email Address",
+            "Email",
             "Subtarea"
         ]
         cols_tecnicos = [col for col in cols_deseadas_tecnicos if col in df_dotacion.columns]
