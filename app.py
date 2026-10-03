@@ -116,6 +116,7 @@ with tab_dotacion:
             "Técnico",
             "Apellido y Nombre",
             "Fecha_Nac",
+            "Edad",
             "DNI",
             "Business  Email Information Email Address",
             "Subtarea"
