@@ -105,7 +105,7 @@ with tab_dotacion:
         # Mostrar la tabla en Streamlit
     
         #Convertir a entero
-        df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('float')
+        #df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('float')
         #if 'Edad' in df_dotacion.columns:df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('Int64')
         #Convertir a Fecha sin hora
         df_dotacion['Fecha_Nac'] = pd.to_datetime(df_dotacion['Fecha_Nac'], errors='coerce').dt.date
