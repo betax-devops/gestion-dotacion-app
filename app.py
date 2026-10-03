@@ -102,13 +102,15 @@ with tab_dotacion:
         st.subheader("👷🏻‍♂️ Registro de Dotación", icon=":material/router:",divider="blue",anchor="puerto-24")
         st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
     
-        # Mostrar la tabla en Streamlit
-    
-        #Convertir a entero
-        #df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('float')
-        #if 'Edad' in df_dotacion.columns:df_dotacion['Edad'] = pd.to_numeric(df_dotacion['Edad'], errors='coerce').astype('Int64')
-        #Convertir a Fecha sin hora
-        df_dotacion['Fecha_Nac'] = pd.to_datetime(df_dotacion['Fecha_Nac'], errors='coerce').dt.date
+        # --- NORMALIZACION DE TIPO DE DATOS ---
+        if "Fecha_Nac" in df_dotacion.columns:
+            # Convertir a datetime y extraer únicamente la fecha (.dt.date)
+            df_dotacion["Fecha_Nac"] = pd.to_datetime(
+                df_dotacion["Fecha_Nac"], errors="coerce"
+            ).dt.date
+
+        st.write(f"Total de registros cargados: **{len(df_dotacion)}**")
+
         #Columnas deseadas a mostrar
         cols_deseadas_tecnicos = [
             "Legajo",
@@ -120,7 +122,18 @@ with tab_dotacion:
             "Subtarea"
         ]
         cols_tecnicos = [col for col in cols_deseadas_tecnicos if col in df_dotacion.columns]
-        st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
+
+        # Configuración de visualización de columnas en la tabla
+        st.dataframe(
+            df_dotacion[cols_tecnicos],
+            column_config={
+                "Fecha_Nac": st.column_config.DateColumn(
+                    "Fecha Nacimiento", format="DD/MM/YYYY"
+                )
+            },
+            use_container_width=True,
+        )
+        #st.dataframe(df_dotacion[cols_tecnicos], use_container_width=True)
         #st.dataframe(df_dotacion,column_config={"Edad": st.column_config.NumberColumn("Edad", format="%d")},use_container_width=True,)
     
 with tab_celulares:
