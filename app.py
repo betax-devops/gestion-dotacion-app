@@ -98,7 +98,7 @@ df_flota = cargar_excel_desde_drive(FLOTA)
 # --- PESTAÑAS DE NAVEGACIÓN ---
 tab_dotacion, tab_celulares, tab_flota, tab_hh, tab_epps = st.tabs(["👷🏻‍♂️ Dotacion", "📱 Celulares", "🚗 Flota", "🧰 Herramientas", "⛑️ EPPs"])
 
-# --- DORACION ---
+# --- DOTACION ---
 with tab_dotacion:
     if df_dotacion is not None:
         st.subheader(
@@ -170,6 +170,15 @@ with tab_celulares:
         st.write(f"Total de registros cargados: **{len(df_celulares)}**")
 
         st.dataframe(df_celulares, use_container_width=True)
+
+
+# --- FLOTA ---
+with tab_flota:
+    if df_flota is not None:
+        st.subheader("🚗 Flota")
+        st.write(f"Flota total de la Base: **{len(df_flota)}**")
+
+        st.dataframe(df_flota, use_container_width=True)
 
     
     
