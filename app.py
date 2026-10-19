@@ -7,7 +7,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 
 # --- CONFIGURACIÓN DE PÁGINA ---
-st.set_page_config(page_title="Gestión de OTs - Dotación", layout="wide")
+st.set_page_config(page_title="Gestión de Dotación", layout="wide")
 
 
 # --- MÓDULO DE AUTENTICACIÓN ---
