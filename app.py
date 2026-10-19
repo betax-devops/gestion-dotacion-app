@@ -243,6 +243,7 @@ with tab_dotacion:
             "DNI",
             "Email",
             "Subtarea",
+            "Skill"
         ]
         cols_tecnicos = [col for col in cols_deseadas_tecnicos if col in df_dotacion.columns]
 
