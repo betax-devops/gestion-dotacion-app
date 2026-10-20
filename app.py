@@ -87,18 +87,15 @@ def cargar_excel_desde_drive(nombre_archivo, sheet_name=0):
 # --- PANEL PRINCIPAL ---
 st.title("📊 Base CCP - Control de Dotación")
 
-DOTACION = "dotacion.xlsx"
-CELULARES = "celulares.xlsx"
-FLOTA = "flota.xlsx"
-HHEPP = "herramientas_epp.xlsx"
+BASECCP = "baseccp.xlsx"
 
 # Cargar datos desde Google Drive
-df_dotacion = cargar_excel_desde_drive(DOTACION)
-df_celulares = cargar_excel_desde_drive(CELULARES)
-df_flota = cargar_excel_desde_drive(FLOTA)
-df_catalogo = cargar_excel_desde_drive(HHEPP, sheet_name= "catalogo")
-df_stock = cargar_excel_desde_drive(HHEPP, sheet_name= "stock")
-df_historico = cargar_excel_desde_drive(HHEPP, sheet_name= "historico")
+df_dotacion = cargar_excel_desde_drive(BASECCP, sheetname = "dotacion")
+df_celulares = cargar_excel_desde_drive(BASECCP, sheetname = "celulares)
+df_flota = cargar_excel_desde_drive(BASECCP, sheetname = "flota")
+df_catalogo = cargar_excel_desde_drive(BASECCP, sheet_name= "catalogo")
+df_stock = cargar_excel_desde_drive(BASECCP, sheet_name= "stock")
+df_historico = cargar_excel_desde_drive(BASECCP, sheet_name= "historico")
 
 
 # --- PESTAÑAS DE NAVEGACIÓN ---
