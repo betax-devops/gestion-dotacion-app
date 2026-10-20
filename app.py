@@ -101,7 +101,7 @@ df_historico = cargar_excel_desde_drive(HHEPP, sheet_name= "historico")
 
 
 # --- PESTAÑAS DE NAVEGACIÓN ---
-tab_dotacion, tab_celulares, tab_flota, tab_hh, tab_epps = st.tabs(["👷🏻‍♂️ Dotacion", "📱 Celulares", "🚗 Flota", "🧰 Herramientas", "⛑️ EPPs"])
+tab_dotacion, tab_celulares, tab_flota, tab_hhepps = st.tabs(["👷🏻‍♂️ Dotacion", "📱 Celulares", "🚗 Flota", "🧰Herramientas y ⛑️EPPs"])
 
 # --- DOTACION ---
 with tab_dotacion:
@@ -284,5 +284,11 @@ with tab_flota:
         st.write(f"Flota total de la Base: **{len(df_flota)}**")
 
         st.dataframe(df_flota, use_container_width=True)
+
+# --- HERRAMIENTAS y EPPs---
+with tab_hhepps:
+    # Subsecciones
+    tab_catalogo, tab_stock, tab_historico = st.tabs(["👷🏻‍♂️ Catalogos", "📱 Stock", "🚗 Historico"])
+
 
     
