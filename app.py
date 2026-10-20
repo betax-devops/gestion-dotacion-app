@@ -95,9 +95,9 @@ HHEPP = "herramientas_epp.xlsx"
 df_dotacion = cargar_excel_desde_drive(DOTACION)
 df_celulares = cargar_excel_desde_drive(CELULARES)
 df_flota = cargar_excel_desde_drive(FLOTA)
-df_catalogo = cargar_excel_desde_drive(HHEPP, "catalogo")
-df_stock = cargar_excel_desde_drive(HHEPP, "stock")
-df_historico = cargar_excel_desde_drive(HHEPP, "historico")
+df_catalogo = cargar_excel_desde_drive(HHEPP, sheet_name="catalogo")
+df_stock = cargar_excel_desde_drive(HHEPP, sheet_name="stock")
+df_historico = cargar_excel_desde_drive(HHEPP, sheet_name="historico")
 
 
 # --- PESTAÑAS DE NAVEGACIÓN ---
