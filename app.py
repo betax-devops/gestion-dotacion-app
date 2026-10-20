@@ -91,7 +91,7 @@ BASECCP = "baseccp.xlsx"
 
 # Cargar datos desde Google Drive
 df_dotacion = cargar_excel_desde_drive(BASECCP, sheetname = "dotacion")
-df_celulares = cargar_excel_desde_drive(BASECCP, sheetname = "celulares)
+df_celulares = cargar_excel_desde_drive(BASECCP, sheetname = "celulares")
 df_flota = cargar_excel_desde_drive(BASECCP, sheetname = "flota")
 df_catalogo = cargar_excel_desde_drive(BASECCP, sheet_name= "catalogo")
 df_stock = cargar_excel_desde_drive(BASECCP, sheet_name= "stock")
