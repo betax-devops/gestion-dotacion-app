@@ -49,7 +49,7 @@ if not verificar_password():
 
 # --- FUNCIÓN PARA DESCARGAR Y CARGAR EXCEL DESDE GOOGLE DRIVE ---
 @st.cache_data(ttl=300)  # Guarda en caché durante 5 minutos
-def cargar_excel_desde_drive(nombre_archivo):
+def cargar_excel_desde_drive(nombre_archivo, sheet_name = 0):
     # 1. Autenticación vía Service Account en Secrets
     creds = service_account.Credentials.from_service_account_info(
         st.secrets["gcp_service_account"],
