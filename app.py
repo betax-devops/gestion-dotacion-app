@@ -89,11 +89,16 @@ st.title("📊 Base CCP - Control de Dotación")
 DOTACION = "dotacion.xlsx"
 CELULARES = "celulares.xlsx"
 FLOTA = "flota.xlsx"
+HHEPP = "herramientas_epp.xlsx"
 
 # Cargar datos desde Google Drive
 df_dotacion = cargar_excel_desde_drive(DOTACION)
 df_celulares = cargar_excel_desde_drive(CELULARES)
 df_flota = cargar_excel_desde_drive(FLOTA)
+df_catalogo = cargar_excel_desde_drive(HHEPP, "catalogo")
+df_stock = cargar_excel_desde_drive(HHEPP, "stock")
+df_historico = cargar_excel_desde_drive(HHEPP, "historico")
+
 
 # --- PESTAÑAS DE NAVEGACIÓN ---
 tab_dotacion, tab_celulares, tab_flota, tab_hh, tab_epps = st.tabs(["👷🏻‍♂️ Dotacion", "📱 Celulares", "🚗 Flota", "🧰 Herramientas", "⛑️ EPPs"])
