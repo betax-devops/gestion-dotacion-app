@@ -49,7 +49,7 @@ if not verificar_password():
 
 # --- FUNCIÓN PARA DESCARGAR Y CARGAR EXCEL DESDE GOOGLE DRIVE ---
 @st.cache_data(ttl=300)  # Guarda en caché durante 5 minutos
-def cargar_excel_desde_drive(nombre_archivo, sheet_name = 0):
+def cargar_excel_desde_drive(nombre_archivo, sheet_name=0):
     # 1. Autenticación vía Service Account en Secrets
     creds = service_account.Credentials.from_service_account_info(
         st.secrets["gcp_service_account"],
@@ -63,7 +63,9 @@ def cargar_excel_desde_drive(nombre_archivo, sheet_name = 0):
     items = results.get("files", [])
 
     if not items:
-        st.error(f"No se encontró el archivo '{nombre_archivo}' en Google Drive.")
+        st.error(
+            f"No se encontró el archivo '{nombre_archivo}' en Google Drive."
+        )
         return None
 
     file_id = items[0]["id"]
@@ -79,9 +81,8 @@ def cargar_excel_desde_drive(nombre_archivo, sheet_name = 0):
 
     file_stream.seek(0)
 
-    # 4. Leer el archivo Excel usando pandas y openpyxl
-    return pd.read_excel(file_stream, engine="openpyxl")
-
+    # 4. Leer la hoja específica del Excel usando pandas y openpyxl
+    return pd.read_excel(file_stream, sheet_name=sheet_name, engine="openpyxl")
 
 # --- PANEL PRINCIPAL ---
 st.title("📊 Base CCP - Control de Dotación")
