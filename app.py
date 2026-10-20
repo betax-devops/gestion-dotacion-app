@@ -290,5 +290,27 @@ with tab_hhepps:
     # Subsecciones
     tab_catalogo, tab_stock, tab_historico = st.tabs(["👷🏻‍♂️ Catalogos", "📱 Stock", "🚗 Historico"])
 
+    with tab_catalogo:
+            if df_catalogo is not None:
+                st.subheader("📱 Registro de Catalogos")
+                st.write(f"Total de registros de Catalogos: **{len(df_catalogo)}**")
+
+                st.dataframe(df_catalogo, use_container_width=True)
+
+
+    with tab_stock:
+        if df_stock is not None:
+            st.subheader("📱 Registro de Stock")
+            st.write(f"Total de registros de Stock de Herramientas y EPPs: **{len(df_stock)}**")
+
+            st.dataframe(df_stock, use_container_width=True)
+
+
+    with tab_historico:
+            if df_historico is not None:
+                st.subheader("📱 Registro Historico de Entregas")
+                st.write(f"Total de registros de Entregas: **{len(df_historico)}**")
+
+                st.dataframe(df_historico, use_container_width=True)
 
     
